@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package rpc_service_ptl;
+
+message rpc_base_ptl{
+    string message = 1;
+    enum calltype{
+        caller = 0;         //Caller identity to the caller.
+        callee = 1;         //The Caller is the Callee
+    }
+    calltype call =2;       //caller identity
+    uint32 session =3;      // Used as a response in the communication session.
+    bytes payload = 4;      //The serialized data of the user protobuf is saved here.
+};
